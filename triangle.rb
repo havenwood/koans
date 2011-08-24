@@ -15,9 +15,8 @@
 #
 def triangle(a, b, c)
   a, b, c = sides = [a, b, c].sort
-  raise TriangleError, "The smallest side of a triangle is always greater than zero." unless a > 0
-  raise TriangleError, "No side of a triangle is bigger than the other two combined." unless a + b > c
-  case sides.uniq.count
+  raise TriangleError unless a > 0 && a + b > c
+  case sides.uniq.length
   when 3
     :scalene
   when 2
