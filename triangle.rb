@@ -14,8 +14,9 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  case [a, b, c].uniq.count
-  when 3
+  a, b, c = sides = [a, b, c].sort
+  case sides.uniq.count
+  when 1
     :equilateral
   when 2
     :isosceles
