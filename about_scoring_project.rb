@@ -31,28 +31,27 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 def score dice
   
-  def add result
-    @result += result
+  @score = 0
+  
+  def add points
+    @score += points
   end
-  
-  @result = 0
-  
-  ones = dice.count 1
-  fives = dice.count 5
   
   1.upto 6 do |roll|
     add roll * 100 if dice.count(roll) > 2
     case roll
     when 1
+      ones = dice.count 1
       add ones * 100
       add 600 if ones > 2
     when 5
+      fives = dice.count 5
       add fives * 50
       add -150 if fives > 2
     end
   end
   
-  @result
+  @score
   
 end
 
@@ -92,6 +91,7 @@ class AboutScoringProject < EdgeCase::Koan
   def test_score_of_mixed_is_sum
     assert_equal 250, score([2,5,2,2,3])
     assert_equal 550, score([5,5,5,5])
+    assert_equal 2000, score([1,1,1,1,3,3,3,3,5,5,5,5,5])
   end
 
 end
