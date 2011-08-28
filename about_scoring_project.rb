@@ -30,7 +30,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 # Your goal is to write the score method.
 
 def score(dice)
-  
+
   @score = 0
   
   def add points
