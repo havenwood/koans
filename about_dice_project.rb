@@ -4,7 +4,7 @@ class DiceSet
   attr_reader :values
   def roll(num)
     @values = []
-    1.upto(num) { @values << rand(6) + 1 }
+    1.upto(num) { @values << rand(6)+1 }
   end
 end
 
