@@ -41,23 +41,6 @@ class TestGreed < MiniTest::Unit::TestCase
     assert_equal first_time, second_time
   end
 
-  def test_dice_values_should_change_between_rolls
-    @dice.roll(5)
-    first_time = @dice.values
-
-    @dice.roll(5)
-    second_time = @dice.values
-
-    refute_equal first_time, second_time,
-      "Two rolls should not be equal"
-
-    # THINK ABOUT IT:
-    #
-    # If the rolls are random, then it is possible (although not
-    # likely) that two consecutive rolls are equal.  What would be a
-    # better way to test this.
-  end
-
   def test_you_can_roll_different_numbers_of_dice
     @dice.roll(3)
     assert_equal 3, @dice.values.size
