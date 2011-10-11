@@ -3,8 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 class DiceSet
   attr_reader :values
   def roll(num)
-    @values = []
-    1.upto(num) { @values << rand(6)+1 }
+    @values = Array.new(num) { rand 1..5 }
   end
 end
 
