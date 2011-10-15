@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require 'minitest/autorun'
+require 'minitest/pride'
 
 class Greed
   class DiceSet
     attr_reader :values
-    def roll(num)
-      @values = []
-      1.upto(num) { @values << rand(6)+1 }
+    def roll num
+      @values = Array.new(num) { rand 1..5 }
     end
   end
 end
