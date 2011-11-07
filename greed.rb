@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-require 'minitest/autorun'
-require 'minitest/pride'
 
 class Greed
   class DiceSet
@@ -10,6 +8,9 @@ class Greed
     end
   end
 end
+
+require 'minitest/autorun'
+require 'minitest/pride'
 
 class TestGreed < MiniTest::Unit::TestCase
   def setup
