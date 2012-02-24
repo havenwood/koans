@@ -9,8 +9,12 @@ class Greed
   end
 end
 
-require 'minitest/autorun'
-require 'minitest/pride'
+begin
+  require 'minitest/autorun'
+  require 'minitest/pride'
+rescue
+  puts "Ruby 1.8 is deprecated, please use a modern Ruby."
+end
 
 class TestGreed < MiniTest::Unit::TestCase
   def setup
@@ -22,7 +26,7 @@ class TestGreed < MiniTest::Unit::TestCase
     refute_nil @game
   end
   
-  def test_can_create_a_dice_set
+  def test_that_dice_are_created
     refute_nil @dice
   end
   
@@ -31,7 +35,7 @@ class TestGreed < MiniTest::Unit::TestCase
     assert @dice.values.is_a?(Array), "should be an array"
     assert_equal 5, @dice.values.size
     @dice.values.each do |value|
-      assert value >= 1 && value <= 6, "value #{value} must be between 1 and 6"
+      assert value >= 1 && value <= 6, "value (#{value}) must be between 1 and 6"
     end
   end
 
