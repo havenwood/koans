@@ -17,7 +17,7 @@
 def triangle a, b, c
   a, b, c = sides = [a, b, c].sort
   raise TriangleError unless a > 0 && a + b > c
-  [:impossibru!, :equilateral, :isosceles, :scalene][sides.uniq.length]
+  [:impossibru!, :equilateral, :isosceles, :scalene][sides.uniq.size]
 end
 
 # Error class used in part 2.  No need to change this code.
